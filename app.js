@@ -35,5 +35,4 @@ window.addEventListener("keydown", (x) => {
 
 function sethistory () {
     previousresult.innerHTML = islem
-    counter++
 }
