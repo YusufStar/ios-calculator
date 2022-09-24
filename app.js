@@ -5,24 +5,26 @@ let btncontainer = document.getElementById("btncontainer")
 let islem;
 
 btncontainer.addEventListener("click", (e) => {
-
-    islem = currentresult.innerHTML
-    
-    if(e.path[0].innerHTML == "=") {
-        currentresult.innerHTML = eval(currentresult.innerHTML)
-        sethistory()
-    } else if(e.path[0].innerHTML == "AC") {
-        previousresult.innerHTML = ""
-        currentresult.innerHTML = ""
-    } else if(e.path[0].innerHTML == "±") {
-        if(currentresult.innerHTML.length > 0){
-        currentresult.innerHTML = eval(currentresult.innerHTML)*-1
+    console.log(e)
+    if(e.path.length== 7){
+        if(e.target.innerHTML == "=") {
+            currentresult.innerHTML = eval(currentresult.innerHTML)
+            sethistory()
+        } else if(e.target.innerHTML == "AC") {
+            previousresult.innerHTML = ""
+            currentresult.innerHTML = ""
+        } else if(e.target.innerHTML == "±") {
+            if(currentresult.innerHTML.length > 0){
+            currentresult.innerHTML = eval(currentresult.innerHTML)*-1
+            }
+        } else if(e.target.innerHTML == "x"){
+            currentresult.innerHTML+="*"
+        } else {
+        currentresult.innerHTML+=e.target.innerHTML
         }
-    } else if(e.path[0].innerHTML == "x"){
-        currentresult.innerHTML+="*"
-    } else {
-    currentresult.innerHTML+=e.path[0].innerHTML
+        islem = currentresult.innerHTML
     }
+    
 })
 
 window.addEventListener("keydown", (x) => {
