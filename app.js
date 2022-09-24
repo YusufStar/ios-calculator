@@ -3,6 +3,7 @@ let currentresult = document.getElementById("currentresult")
 let btncontainer = document.getElementById("btncontainer")
 
 btncontainer.addEventListener("click", (e) => {
+    console.log(e)
     if(e.path[0].innerHTML == "=") {
         currentresult.innerHTML = eval(currentresult.innerHTML)
     } else if(e.path[0].innerHTML == "AC") {
@@ -11,8 +12,10 @@ btncontainer.addEventListener("click", (e) => {
         if(currentresult.innerHTML.length > 0){
         currentresult.innerHTML = eval(currentresult.innerHTML)*-1
         }
+    } else if(e.path[0].innerHTML == "x"){
+        currentresult.innerHTML+="*"
     } else {
-        currentresult.innerHTML+=e.path[0].innerHTML
+    currentresult.innerHTML+=e.path[0].innerHTML
     }
 })
 
