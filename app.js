@@ -1,11 +1,16 @@
-const previousresult = document.getElementById("previousresult")
+let previousresult = document.getElementById("previousresult")
 let currentresult = document.getElementById("currentresult")
 let btncontainer = document.getElementById("btncontainer")
 
+let islem;
+
 btncontainer.addEventListener("click", (e) => {
-    console.log(e)
+
+    islem = currentresult.innerHTML
+    
     if(e.path[0].innerHTML == "=") {
         currentresult.innerHTML = eval(currentresult.innerHTML)
+        sethistory()
     } else if(e.path[0].innerHTML == "AC") {
         currentresult.innerHTML = ""
     } else if(e.path[0].innerHTML == "±") {
@@ -26,3 +31,8 @@ window.addEventListener("keydown", (x) => {
        }
     }
 })
+
+function sethistory () {
+    previousresult.innerHTML = islem
+    counter++
+}
