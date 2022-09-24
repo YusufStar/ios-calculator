@@ -12,6 +12,7 @@ btncontainer.addEventListener("click", (e) => {
         currentresult.innerHTML = eval(currentresult.innerHTML)
         sethistory()
     } else if(e.path[0].innerHTML == "AC") {
+        previousresult.innerHTML = ""
         currentresult.innerHTML = ""
     } else if(e.path[0].innerHTML == "±") {
         if(currentresult.innerHTML.length > 0){
